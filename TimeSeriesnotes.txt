@@ -1,0 +1,21 @@
+FPP
+
+6.1) Time Series decomposition.
+
+Mutiplicative decomposition common with economic time series.
+
+The trend-cycle shows the overall movement in the series, ignoring 
+the seasonality and any small random fluctuations.
+
+Deseasonalization of data, when do we use deseasonalized data:
+unemployment.
+
+Seasonally adjusted data has trend cycle as well as remainder component,
+Not smooth and downturn and upturn can be misleading.
+
+
+If the purpose is to look at downturn or upturns then use trend-cycle 
+component rather than seasonally adjusted data.
+
+
+6.2) Moving Averages
