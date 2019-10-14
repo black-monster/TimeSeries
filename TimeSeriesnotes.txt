@@ -19,3 +19,55 @@ component rather than seasonally adjusted data.
 
 
 6.2) Moving Averages
+(Question : How to find m for different time periods?)
+If the seasonal period is odd and of order m, then m-MA.
+If the seasonal period is even and of order m, then 2 X m-MA.
+
+6.3) Drawbacks of classical decomposition:
+ 1) Unavailabity of trend components for first few and last few months, no remainder component too.
+
+ 2) tends to oversmooth rapid rise and fall.
+ 
+ 3) Tends to assume that seasonal component repeats from year to year.
+    Air conditioning example.
+
+ 4) Not robust to unusual values. Air traffic strike example. 
+
+Sophisticated ways of decombosition
+
+6.4) X11  (Originated in the US Census Board and Statistics Canada)'
+
+	Based on classical decomposition, but some extra steps and features to overcome the drawback.
+	trend-cycle esitmate available for all obs including end points.
+	seasonal component allowed to vary over time.
+	Can handle trading day variation, holiday effects and effects of known predictors.(HOW?)
+	Robust to outliers and level shifts in TS.
+	It handles both additive and multiplicative decomposition.
+	Available in seasonal package in R.
+
+6.5) SEATS decompositon (Seasonal Extraction in ARIMA TS, developed by Bank of Spain)
+
+	Works only with quarterly or monthly data.
+	daily, hourly, weekly require an alternative approach.
+
+	Available in seasonal package in R.
+
+
+6.6) STL decompositon (Seasonal and Trend decomposition using Loess)
+
+	Many advantages over classical, seats and x11.
+
+	* Will handle any type of seasonality not just monthly and quarterly data.
+	* Seasonal component is allowed to change over time, rate of change can be controlled by user.
+	* Smoothness of trend-cycle can be controlled by user.
+	* Robust to outlier. (User can specify a robust decomposition)
+	Unusual observations will not affect the esitmates of trend-cycle and seasonal components. They will,
+	however affect the remainder.
+
+	Disadvantage : 
+	Does not handle trading day or calendar variations.
+	Only Additive Decompose. Can be used for multiplicative using boxcox transform. (0<gamma<1)
+	gamma = 0 multiplicative
+	gamma = 1 additive
+
+	
